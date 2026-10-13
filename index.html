@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b3a">
+  <meta name="description" content="Rentora — rent useful things from people nearby.">
+  <title>Rentora — Rent more. Buy less.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="intro-screen" class="intro-screen" aria-label="Rentora introduction">
+    <video id="intro-video" class="intro-video" playsinline preload="auto" autoplay>
+      <source src="assets/rentora-intro.mp4" type="video/mp4">
+      Your browser cannot play this introduction video.
+    </video>
+    <div class="intro-brand"><span class="brand-mark">R</span><span>Rentora</span></div>
+    <div id="intro-message" class="intro-message" role="status">Loading your introduction…</div>
+    <button id="intro-play" class="btn btn-primary intro-play hidden" type="button">Play introduction <span aria-hidden="true">↗</span></button>
+    <div class="intro-progress"><span id="intro-progress-bar"></span></div>
+  </div>
+
+  <main id="auth-screen" class="auth-screen hidden">
+    <div class="auth-art">
+      <div class="auth-art-top"><a class="brand" href="#" aria-label="Rentora home"><span class="brand-mark">R</span><span>Rentora</span></a><span class="eyebrow">THE SMARTER WAY TO GET IT</span></div>
+      <div class="auth-art-copy"><p class="eyebrow mint">OWN LESS. DO MORE.</p><h1>Good things<br>are better <em>shared.</em></h1><p>Find the things you need for the moments that matter — without buying them for good.</p><div class="art-pills"><span>Local community</span><span>Flexible rentals</span><span>Less waste</span></div></div>
+      <div class="auth-art-bottom"><span>Made for the things you don't need every day.</span><span>01 / 03</span></div>
+    </div>
+    <section class="auth-panel">
+      <div class="auth-mobile-brand brand"><span class="brand-mark">R</span><span>Rentora</span></div>
+      <div class="auth-box">
+        <div class="auth-tabs" role="tablist"><button class="auth-tab active" data-auth="signup" role="tab" aria-selected="true">Create account</button><button class="auth-tab" data-auth="signin" role="tab" aria-selected="false">Sign in</button></div>
+        <p class="eyebrow">YOUR NEXT GREAT FIND</p><h2 id="auth-title">Join the sharing circle.</h2><p class="muted" id="auth-subtitle">Create your demo account and start exploring nearby.</p>
+        <form id="auth-form">
+          <div id="name-field" class="field"><label for="full-name">Full name</label><input id="full-name" name="name" autocomplete="name" placeholder="Alex Morgan" required></div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required></div>
+          <p class="tiny-note">Demo only: no identity verification or backend. Your password is never saved.</p>
+          <button id="auth-submit" class="btn btn-primary btn-wide" type="submit">Create account &amp; enter the store <span>→</span></button>
+        </form>
+        <div id="auth-feedback" class="feedback" aria-live="polite"></div>
+      </div>
+      <p class="auth-legal">By continuing, you agree to use this prototype for demonstration only.</p>
+    </section>
+  </main>
+
+  <div id="app-shell" class="app-shell hidden">
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Rentora home"><span class="brand-mark">R</span><span>Rentora</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#home" class="nav-link active">Home</a><a href="#explore" class="nav-link">Explore</a><a href="#how-it-works" class="nav-link">How it works</a><a href="#list-item" class="nav-link">List an item</a></nav>
+      <div class="header-actions"><button class="icon-btn" id="favorites-shortcut" aria-label="Open favorites" title="Favorites">♡<span id="fav-count" class="count">0</span></button><button class="avatar-btn" id="account-shortcut" aria-label="Open account">AM</button><button class="menu-btn" id="mobile-menu" aria-label="Open menu">☰</button></div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-copy"><div class="eyebrow hero-eyebrow"><span class="live-dot"></span> A BETTER WAY TO GET WHAT YOU NEED</div><h1>Make room for<br>more <em>possibility.</em></h1><p>Rent useful things from people nearby. Spend less on stuff, and more on what you want to do.</p>
+        <div class="hero-search"><div class="search-input-wrap"><span>⌕</span><input id="search-input" placeholder="What are you looking for?" aria-label="Search products"></div><div class="search-divider"></div><div class="city-select"><span>⌖</span><select id="city-filter" aria-label="Choose city"><option value="All cities">All cities</option><option>Damietta</option><option>New Damietta</option><option>Ras El Bar</option><option>Cairo</option><option>Alexandria</option><option>Mansoura</option></select></div><button id="search-btn" class="btn btn-primary">Search <span>→</span></button></div>
+        <div class="hero-trust"><span>✦ <b>Community-powered</b></span><span>◈ <b>Flexible by the day</b></span><span>♧ <b>Use more, waste less</b></span></div>
+      </div>
+      <div class="hero-visual"><div class="hero-image-main"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=85" alt="Camera ready for a creative day"></div><div class="floating-card float-top"><span class="float-icon">✦</span><div><b>Find your next thing</b><small>Great gear, close by</small></div></div><div class="floating-card float-bottom"><div class="mini-avatars"><span>A</span><span>M</span><span>J</span></div><div><b>Shared by your community</b><small>Good things go around.</small></div></div><div class="hero-circle"></div></div>
+    </section>
+
+    <section id="explore" class="market-section section-pad">
+      <div class="section-heading"><div><p class="eyebrow">THE NEIGHBORHOOD FINDS</p><h2>Find something <em>useful.</em></h2><p class="muted">From one-off projects to weekends worth remembering.</p></div><button id="view-all" class="text-btn">Explore all items <span>→</span></button></div>
+      <div class="category-row" id="category-row">
+        <button class="category-chip active" data-category="All">✦ <span>All items</span></button><button class="category-chip" data-category="Electronics">▣ <span>Electronics</span></button><button class="category-chip" data-category="Photography">◎ <span>Photography</span></button><button class="category-chip" data-category="Tools & Gear">⌁ <span>Tools &amp; Gear</span></button><button class="category-chip" data-category="Outdoor">♧ <span>Outdoor</span></button><button class="category-chip" data-category="Events">✧ <span>Events</span></button><button class="category-chip" data-category="Sports">↗ <span>Sports</span></button><button class="category-chip" data-category="Home">⌂ <span>Home</span></button>
+      </div>
+      <div class="filter-bar"><div class="result-count"><b id="result-count">12</b> things to explore</div><div class="filters"><label class="filter-control">Max / day <select id="price-filter"><option value="all">Any price</option><option value="250">Up to EGP 250</option><option value="500">Up to EGP 500</option><option value="1000">Up to EGP 1,000</option></select></label><label class="filter-check"><input type="checkbox" id="delivery-filter"> Delivery available</label><label class="filter-check"><input type="checkbox" id="verified-filter"> Verified owners</label><label class="filter-control">Sort <select id="sort-filter"><option value="popular">Popular</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="rating">Top rated</option></select></label></div></div>
+      <div id="product-grid" class="product-grid"></div><div id="empty-state" class="empty-state hidden"><div class="empty-icon">⌕</div><h3>No matches just yet</h3><p>Try another search, category, or city.</p><button id="clear-filters" class="btn btn-outline">Clear filters</button></div>
+      <div class="load-more-wrap"><button id="load-more" class="btn btn-outline">Show more finds <span>↓</span></button></div>
+    </section>
+
+    <section id="how-it-works" class="how-section section-pad"><div class="section-heading"><div><p class="eyebrow">SIMPLE BY DESIGN</p><h2>Three steps. <em>One less purchase.</em></h2></div><p class="muted section-side-copy">Get what you need, for exactly as long as you need it.</p></div><div class="steps-grid"><article class="step-card"><div class="step-number">01 <span>⌕</span></div><div class="step-illustration ill-search">⌕</div><h3>Find your thing</h3><p>Search the neighborhood for the gear, tools, or little extras you need.</p></article><article class="step-card"><div class="step-number">02 <span>▣</span></div><div class="step-illustration ill-calendar">▦</div><h3>Request your dates</h3><p>Choose your rental dates and agree on pickup, delivery, and deposit details.</p></article><article class="step-card"><div class="step-number">03 <span>↗</span></div><div class="step-illustration ill-happy">✦</div><h3>Go make it happen</h3><p>Meet your owner, check the item's condition, and enjoy using it.</p></article></div></section>
+
+    <section id="list-item" class="owner-section section-pad"><div class="owner-panel"><div class="owner-copy"><p class="eyebrow mint">GIVE YOUR GEAR A SECOND LIFE</p><h2>That thing in your closet?<br>Someone needs it.</h2><p>Turn things you already own into useful income. Start with a draft, set your rules, and meet your local community.</p><ul><li>✓ Set your own daily price</li><li>✓ Decide pickup and delivery options</li><li>✓ Keep control of your rental rules</li></ul><button id="list-item-btn" class="btn btn-light">List an item <span>→</span></button></div><div class="owner-art"><div class="owner-circle"></div><img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=800&q=85" alt="Useful equipment ready to be shared"><div class="owner-sticker"><span>↗</span><b>Make it useful<br>again.</b></div></div></div></section>
+
+    <section class="planned-section section-pad"><div class="section-heading"><div><p class="eyebrow">WHAT'S NEXT</p><h2>Good things are <em>growing.</em></h2></div><span class="coming-label">PLANNED FEATURES</span></div><div class="planned-grid"><article class="planned-card"><div class="planned-icon">♧</div><div><h3>Group rentals</h3><p>Share the cost of bigger items with friends or neighbors.</p><span class="status-pill">Planned</span></div></article><article class="planned-card"><div class="planned-icon">▤</div><div><h3>Business accounts</h3><p>Tools for shops and professionals managing multiple listings.</p><span class="status-pill">Planned</span></div></article></div></section>
+
+    <section class="newsletter-section"><div><p class="eyebrow mint">A LITTLE MORE USEFUL</p><h2>Good finds, occasionally.</h2><p>Get the occasional update on new ideas and community finds.</p></div><form id="newsletter-form" class="newsletter-form"><label class="sr-only" for="newsletter-email">Email address</label><input id="newsletter-email" type="email" placeholder="Your email address" required><button class="btn btn-light" type="submit">Keep me posted →</button><small>Demo form only. No email will be sent.</small></form></section>
+
+    <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><a class="brand brand-light" href="#home"><span class="brand-mark">R</span><span>Rentora</span></a><p>Rent more. Buy less.<br>Make room for possibility.</p></div><div class="footer-links"><div><b>Discover</b><a href="#explore">Explore items</a><a href="#how-it-works">How it works</a><a href="#list-item">List an item</a></div><div><b>Your space</b><a href="#account" data-view="account">My account</a><a href="#account" data-view="favorites">Favorites</a><a href="#account" data-view="bookings">My bookings</a></div><div><b>Rentora</b><a href="#planned">Planned features</a><a href="#admin" id="admin-link">Demo admin</a><a href="#demo-notice">About this demo</a></div></div></div><div class="footer-bottom"><span>© 2026 Rentora Prototype</span><span>Demo experience · No real payments or confirmed bookings</span><a href="#demo-notice">Name availability not verified</a></div><div id="demo-notice" class="demo-notice">Rentora is a provisional project name. Legal, trademark, domain, and social-handle availability have not been checked. This is a front-end prototype only; activity is stored locally when browser storage is available.</div></footer>
+  </div>
+
+  <div id="modal-root" class="modal-root" aria-live="polite"></div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
